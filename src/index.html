@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
+    <style type="text/css">
+        .container {
+            width: 500px;
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+
+        ul.chat_container {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul.chat_container li {
+            display: block;
+            clear: both;
+            float: left;
+        }
+
+        li {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        li .message {
+            display: inline-block;
+            clear: both;
+            margin: 2px 0px;
+            background-color: red;
+            padding: 5px 10px;
+            border-radius: 13px;
+            color: white;
+        }
+
+        li.me .message{
+            float: right;
+            background-color: #0084ff;
+        }
+
+        .user {
+            color: #888;
+            clear: both;
+            font-size: 13px;
+            margin-left: 2px;
+            margin-bottom: 0px;
+        }
+
+        li.me .user {
+            float:right;
+            margin-right: 6px;
+        }
+        
+        input {
+            margin-top: 20px;
+            width: 100%;
+            padding: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="header">𝝺-chat</h1>
+    <div class="ui divider"></div>
+
+    <h3 class="ui header">Functors and homomorphisms, oh my</h3>
+    <div class="ui red divider"></div>
+
+  
+    <ul class="chat_container">
+        <li class="message">
+            <div class="user">Sashank</div>
+            <div class="message">Hey!</div>
+            <div class="message">Did you do the homework yet?</div>
+        </li>
+        <li class="message me">
+            <div class="user">Rex</div>
+            <div class="message">Yes. </div>
+        </li>
+        <li class="message">
+            <div class="user">Kevin</div>
+            <div class="message">How long does it take?</div>
+        </li>
+        <li class="message">
+            <div class="user">Michael</div>
+            <div class="message">Are foldMap and pmap interchangeable? They look really similar to me. </div>
+        </li>
+        <li class="message me">
+            <div class="user">Rex</div>
+            <div class="message">We are trying to emulate parallelization, so it's best to use pmap (which has already been defined in the homework for us to use). </div>
+            <div class="message">@Kevin prob 5 - 10 min</div>
+        </li>
+    </ul>
+
+    <input type="" placeholder="message (⏎ to send)" name="">
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+<script type="text/javascript">
+    $('input').keypress(function (e) {
+        if (e.which != 13) return;
+
+        
+        var $val = $(this).val();
+        var $el = $("li.message").last().append(`<div class="message">${$val}</div>`)
+        $(this).val("")
+
+    });
+</script>
+<script>
+  document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
+  ':35729/livereload.js?snipver=1"></' + 'script>')
+</script> 
+</body>
+</html>
