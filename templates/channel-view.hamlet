@@ -1,0 +1,8 @@
+<div .ui.container>
+
+    <h3 .ui.dividing.header>
+      Woo this is a channel page
+
+    <p>
+      Username: <div .ui.label>#{userIdent user}
+

@@ -16,10 +16,3 @@ Comment json -- Adding "json" causes ToJSON and FromJSON instances to be derived
     userId UserId Maybe
     deriving Eq
     deriving Show
-Channel
-    title Text
-    desc Text
-    userId UserId
-    UniqueChannel title
-    deriving Eq
-    deriving Show
