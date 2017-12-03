@@ -1,0 +1,118 @@
+h2#hident4 {
+    color: #990
+;
+}
+li {
+    line-height: 2em;
+    font-size: 16px
+;
+}
+#js-createCommentTextarea {
+    width: 400px;
+    height: 100px;
+}
+.container {
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+ul.chat_container {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+ul.chat_container li {
+    display: block;
+    clear: both;
+    float: left;
+}
+li {
+    width: 100%;
+    margin-bottom: 10px;
+}
+li .message {
+    display: inline-block;
+    clear: both;
+    margin: 2px 0px;
+    background-color: red;
+    padding: 5px 10px;
+    border-radius: 13px;
+    color: white;
+}
+li.me .message {
+    float: right;
+    background-color: #0084ff;
+}
+.user {
+    color: #888;
+    clear: both;
+    font-size: 13px;
+    margin-left: 2px;
+    margin-bottom: 0px;
+}
+li.me .user {
+    float: right;
+    margin-right: 6px;
+}
+input {
+    margin-top: 20px;
+    width: 100%;
+    padding: 20px;
+}
+.masthead,.navbar {
+    background-color: rgb(27, 28, 29);
+}
+.navbar-default .navbar-nav > .active > a {
+    background-color: transparent;
+    border-bottom: 2px solid white;
+}
+.navbar-nav {
+    padding-bottom: 1em;
+}
+.masthead {
+    margin-top: -21px;
+    color: white;
+    text-align: center;
+    min-height: 500px;
+}
+.masthead .header {
+    max-width: 700px;
+    margin: 0 auto;
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+}
+.masthead h1.header {
+    margin-top: 1em;
+    margin-bottom: 0em;
+    font-size: 4.5em;
+    line-height: 1.2em;
+    font-weight: normal;
+}
+.masthead h2 {
+    font-size: 1.7em;
+    font-weight: normal;
+}
+.masthead .btn {
+    margin: 1em 0;
+}
+.bs-callout {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+}
+.bs-callout p:last-child {
+    margin-bottom: 0;
+}
+.bs-callout-info {
+    border-left-color: #1b809e;
+}
+.bs-docs-section {
+    margin-bottom: 60px;
+}
+.bs-docs-section:last-child {
+    margin-bottom: 0;
+}
+#message {
+    margin-bottom: 40px;
+}

@@ -1,0 +1,43 @@
+
+<!-- Static navbar -->
+    <div .container>
+        <div class="ui text menu">
+          <div class="item">
+           𝝺-chat
+          
+          $forall MenuItem label route _ <- navbarLeftFilteredMenuItems
+            <a class="item" href="@{route}">#{label}
+                
+          
+          $forall MenuItem label route _ <- navbarRightFilteredMenuItems
+             <a class="right item" href="@{route}">#{label}
+        
+
+<!-- Page Contents -->
+
+<div .container>
+    $if not $ Just HomeR == mcurrentRoute
+        <ul .breadcrumb>
+            $forall bc <- parents
+                <li>
+                    <a href="@{fst bc}">#{snd bc}
+
+            <li .active>#{title}
+
+    $maybe msg <- mmsg
+      <div .alert.alert-info #message>#{msg}
+
+
+$if (Just HomeR == mcurrentRoute)
+    ^{widget}
+$else
+    <div .container>
+        <div .row>
+            <div .col-md-12>
+                ^{widget}
+
+<!-- Footer -->
+<footer .footer>
+    <div .container>
+        <p .text-muted>
+            #{appCopyright $ appSettings master}
