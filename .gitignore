@@ -1,0 +1,8 @@
+.ghci/
+.stack-work/
+dist/
+/database/
+yesod-devel/
+config/client_session_key.aes
+.ghci
+.dir-locals.el
