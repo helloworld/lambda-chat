@@ -30,7 +30,7 @@ getHomeR = do
     allComments <- runDB $ getAllComments
 
     defaultLayout $ do
-        let (commentFormId, commentTextareaId, commentListId) = commentIds
+        let (commentFormId, commentTextareaId, channelDescId, commentListId) = commentIds
         aDomId <- newIdent
         setTitle "Welcome To Yesod!"
         $(widgetFile "homepage")
@@ -45,7 +45,7 @@ postHomeR = do
     allComments <- runDB $ getAllComments
 
     defaultLayout $ do
-        let (commentFormId, commentTextareaId, commentListId) = commentIds
+        let (commentFormId, commentTextareaId, channelDescId, commentListId) = commentIds
         aDomId <- newIdent
         setTitle "Welcome To Yesod!"
         $(widgetFile "homepage")
@@ -66,8 +66,8 @@ sampleForm = renderBootstrap3 BootstrapBasicForm $ FileForm
                 ]
             }
 
-commentIds :: (Text, Text, Text)
-commentIds = ("js-commentForm", "js-createCommentTextarea", "js-commentList")
+commentIds :: (Text, Text, Text, Text)
+commentIds = ("js-commentForm", "js-createCommentTextarea", "js-createCommentDescArea", "js-commentList")
 
 getAllComments :: DB [Entity Comment]
 getAllComments = selectList [] [Asc CommentId]
