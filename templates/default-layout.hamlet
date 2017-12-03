@@ -1,43 +1,42 @@
 
 <!-- Static navbar -->
-    <div .container>
-        <div class="ui text menu">
-          <div class="item">
-           𝝺-chat
-          
-          $forall MenuItem label route _ <- navbarLeftFilteredMenuItems
-            <a class="item" href="@{route}">#{label}
-                
-          
-          $forall MenuItem label route _ <- navbarRightFilteredMenuItems
-             <a class="right item" href="@{route}">#{label}
+<div .ui.container>
+    <div class="ui text menu">
+      <div class="item">
+       𝝺-chat
+      
+      $forall MenuItem label route _ <- navbarLeftFilteredMenuItems
+        <a class="item" href="@{route}">#{label}
+            
+      
+      $forall MenuItem label route _ <- navbarRightFilteredMenuItems
+         <a class="right item" href="@{route}">#{label}
         
 
 <!-- Page Contents -->
 
-<div .container>
+<div .ui.container>
     $if not $ Just HomeR == mcurrentRoute
-        <ul .breadcrumb>
-            $forall bc <- parents
-                <li>
-                    <a href="@{fst bc}">#{snd bc}
+      <div class="ui breadcrumb">
+        $forall bc <- parents
+          <a href="@{fst bc}" .section">#{snd bc}
+          <i class="right chevron icon divider">
 
-            <li .active>#{title}
+        <li .active.section >#{title}
 
     $maybe msg <- mmsg
-      <div .alert.alert-info #message>#{msg}
+      <div .ui.negative.message> 
+        <div .header>#{msg}
+
 
 
 $if (Just HomeR == mcurrentRoute)
     ^{widget}
 $else
-    <div .container>
-        <div .row>
-            <div .col-md-12>
-                ^{widget}
+    <div .ui.container>
+        ^{widget}
 
 <!-- Footer -->
 <footer .footer>
     <div .container>
-        <p .text-muted>
-            #{appCopyright $ appSettings master}
+        
