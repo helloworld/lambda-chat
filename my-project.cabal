@@ -20,6 +20,7 @@ flag library-only
 library
   hs-source-dirs:
       src
+  default-extensions: ViewPatterns
   build-depends:
       base >=4.8.2.0 && <4.9 || >=4.9.1.0 && <5
     , classy-prelude-yesod >=0.10.2 && <1.0 || >=1.1
@@ -66,11 +67,11 @@ library
   exposed-modules:
       Application
       Foundation
+      Handler.ChannelView
       Handler.Comment
       Handler.Common
       Handler.Home
       Handler.Profile
-      Handler.ChannelView
       Import
       Import.NoFoundation
       Model
@@ -84,6 +85,7 @@ executable my-project
   main-is: main.hs
   hs-source-dirs:
       app
+  default-extensions: ViewPatterns
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.8.2.0 && <4.9 || >=4.9.1.0 && <5
@@ -135,6 +137,7 @@ test-suite test
   main-is: Spec.hs
   hs-source-dirs:
       test
+  default-extensions: ViewPatterns
   ghc-options: -Wall
   build-depends:
       base >=4.8.2.0 && <4.9 || >=4.9.1.0 && <5

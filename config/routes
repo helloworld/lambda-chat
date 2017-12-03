@@ -13,4 +13,4 @@
 
 /profile ProfileR GET
 
-/channel ChannelViewR GET
+/channel/#String ChannelViewR GET
