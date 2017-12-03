@@ -1,4 +1,4 @@
-document.getElementById(#{toJSON aDomId}).innerHTML = "This text was added by the Javascript part of the homepage widget.";
+// document.getElementById(#{toJSON aDomId}).innerHTML = "This text was added by the Javascript part of the homepage widget.";
 
 $(function() {
   $("##{rawJS commentFormId}").submit(function(event) {
@@ -20,10 +20,20 @@ $(function() {
         message: message,
       }),
       success: function (data) {
-        var newNode = $("<li></li>");
-        newNode.text(data.message);
-        console.log(data);
-        $("##{rawJS commentListId}").append(newNode);
+        location.reload();
+        // var html = `
+        //   <tr>
+        //       <td>
+        //           <h4 class="ui header">
+        //               <div class="content"> ${data.message}
+        //           </h4>
+        //           <div class="sub header">CMSC498V</div>
+        //       </td>
+        //       <td> 22 </td>
+        //       <td> <a href="/" class="ui green button">Join</a> </td>
+        //   </tr>
+        // `
+        // $("##{rawJS commentListId}").append(html);
       },
       error: function (data) {
         console.log("Error creating comment: " + data);

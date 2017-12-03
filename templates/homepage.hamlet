@@ -1,22 +1,30 @@
 <div class="ui container">        
     <div class="ui divider">
     <h3 class="ui blue header">Chat Rooms:
+
+    <div .ui.segment>
+        <form .ui.form ##{commentFormId}>
+            <div .field>
+                <textarea rows="2" ##{commentTextareaId} placeholder="Your comment here..." required></textarea>
+                <!-- <input ##{channelDescId} placeholder="Channel Description" required> -->
+
+            <button .ui.button type=submit>
+               Create comment
+
+       
+
     <table class="ui basic celled table">
         <thead>
             <tr>
                 <th>Name
                 <th>Participants
                 <th>Link
-        <tbody>
-        <tr>
-            <td>
-                <h4 class="ui header">
-                    <div class="content"> Functors and homomorphisms, oh my <div class="sub header">CMSC498V 
-            <td> 22 
-            <td> <a href="/" class="ui green button">Join
-        <tr>
-            <td>
-                <h4 class="ui header">
-                    <div class="content"> Facebook Recruiter <div class="sub header">Sarai 
-            <td> 22 
-            <td> <a href="/" class="ui green button">Join
+        <tbody ##{commentListId}>
+        $forall comment <- allComments
+            <tr>
+                <td>
+                    <h4 class="ui header">
+                        <div class="content"> #{commentMessage $ entityVal comment} <div class="sub header">CMSC498V 
+                <td> 22 
+                <td> <a href="/" class="ui green button">Join
+        
