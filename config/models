@@ -17,10 +17,10 @@ Comment json -- Adding "json" causes ToJSON and FromJSON instances to be derived
     userId UserId Maybe
     deriving Eq
     deriving Show
-Message
+Message json
     content Text
     userId UserId Maybe
-    channelId ChannelId Maybe
+    channelId CommentId Maybe
     created UTCTime default=CURRENT_TIME
     deriving Eq
     deriving Show
