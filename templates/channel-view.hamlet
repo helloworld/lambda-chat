@@ -1,7 +1,7 @@
 <div .ui.container>
 
     <h3 .ui.dividing.header>
-      Woo this is a channel page
+      Channel Name: #{slug}
 
     <p>
       Username: <div .ui.label>#{userIdent user}
@@ -32,3 +32,4 @@
     
 
     <input type="" placeholder="message (⏎ to send)" name="">
+
