@@ -5,7 +5,7 @@ document.onreadystatechange = () => {
     $('input').keypress(function (e) {
            if (e.which != 13) return;
            var message = $(this).val();
-           var $el = $("li.message").last().append(`<div class="message">${message}</div>`)
+           var $el = $("li.message").last().append(`<div class="message">${$val}</div>`)
            $(this).val("")
 
            $.ajax({
@@ -14,7 +14,6 @@ document.onreadystatechange = () => {
                  contentType: "application/json",
                  data: JSON.stringify({
                    message: message,
-                   comm: parseInt(commentid),
                  }),
                  success: function (data) {
                    console.log(data);

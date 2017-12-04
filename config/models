@@ -20,5 +20,6 @@ Comment json -- Adding "json" causes ToJSON and FromJSON instances to be derived
 Message json
     message Text
     userId UserId Maybe
+    comm Int
     deriving Eq
     deriving Show

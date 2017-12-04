@@ -73,6 +73,7 @@ library
       Handler.Message
       Handler.Profile
       Handler.CommentView
+      Handler.MessageNew
       Import
       Import.NoFoundation
       Model
