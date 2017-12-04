@@ -155,6 +155,7 @@ instance Yesod App where
 
     isAuthorized ProfileR _ = isAuthenticated
     isAuthorized (ChannelViewR _) _ = isAuthenticated
+    isAuthorized (MessageR _) _ = isAuthenticated
 
     -- This function creates static content files in the static folder
     -- and names them based on a hash of their content. This allows
