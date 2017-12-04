@@ -6,3 +6,29 @@
     <p>
       Username: <div .ui.label>#{userIdent user}
 
+    <ul class="chat_container">
+        <li class="message">
+            <div class="user">Sashank
+            <div class="message">Hey!
+            <div class="message">Did you do the homework yet?
+        
+        <li class="message me">
+            <div class="user">Rex
+            <div class="message">Yes. 
+        
+        <li class="message">
+            <div class="user">Kevin
+            <div class="message">How long does it take?
+        
+        <li class="message">
+            <div class="user">Michael
+            <div class="message">Are foldMap and pmap interchangeable? They look really similar to me. 
+        
+        <li class="message me">
+            <div class="user">Rex
+            <div class="message">We are trying to emulate parallelization, so it's best to use pmap (which has already been defined in the homework for us to use). 
+            <div class="message">@Kevin prob 5 - 10 min
+        
+    
+
+    <input type="" placeholder="message (⏎ to send)" name="">
