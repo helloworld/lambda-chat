@@ -3,3 +3,54 @@
     margin: 0 auto;
     margin-top: 30px;
 }
+
+ul.chat_container {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.chat_container li {
+    display: block;
+    clear: both;
+    float: left;
+}
+
+li {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+li .message {
+    display: inline-block;
+    clear: both;
+    margin: 2px 0px;
+    background-color: red;
+    padding: 5px 10px;
+    border-radius: 13px;
+    color: white;
+}
+
+li.me .message{
+    float: right;
+    background-color: #0084ff;
+}
+
+.user {
+    color: #888;
+    clear: both;
+    font-size: 13px;
+    margin-left: 2px;
+    margin-bottom: 0px;
+}
+
+li.me .user {
+    float:right;
+    margin-right: 6px;
+}
+
+input {
+    margin-top: 20px;
+    width: 100%;
+    padding: 20px;
+}
