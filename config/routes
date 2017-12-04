@@ -9,7 +9,8 @@
 
 / HomeR GET POST
 
-/comments CommentR GET POST
+/comments CommentR POST
+/comments/#CommentId CommentViewR GET
 
 /profile ProfileR GET
 

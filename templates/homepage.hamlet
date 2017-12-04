@@ -24,10 +24,10 @@
                 <th>Participants
                 <th>Link
         <tbody ##{commentListId}>
-        $forall comment <- allComments
+        $forall Entity commentid comment <- allComments
             <tr>
                 <td>
                     <h4 class="ui header">
-                        <div class="content"> #{commentMessage $ entityVal comment} <div class="sub header"> #{commentDesc $ entityVal comment}
+                        <div class="content"> #{commentMessage comment} <div class="sub header"> #{commentDesc comment}
                 <td> 22
-                <td> <a href="/" class="ui green fluid button">Join
+                <td> <a href=@{CommentViewR commentid} class="ui green fluid button">Join
