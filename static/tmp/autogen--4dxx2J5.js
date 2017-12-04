@@ -1,4 +1,4 @@
-var commentid = $("#commentid").text().trim()
+var commentid = $("#commentid").text()
 
 document.onreadystatechange = () => {
   if (document.readyState === 'complete') {
@@ -13,8 +13,8 @@ document.onreadystatechange = () => {
             type: 'POST',
             contentType: "application/json",
             data: JSON.stringify({
-              content: $val,
-              // commentid: commentid,
+              message: message,
+              desc: desc,
             }),
             success: function (data) {
               console.log(data);

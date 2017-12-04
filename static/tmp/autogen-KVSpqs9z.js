@@ -14,7 +14,7 @@ document.onreadystatechange = () => {
             contentType: "application/json",
             data: JSON.stringify({
               content: $val,
-              // commentid: commentid,
+              commentid: commentid,
             }),
             success: function (data) {
               console.log(data);
