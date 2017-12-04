@@ -71,6 +71,7 @@ library
       Handler.Comment
       Handler.Common
       Handler.Home
+      Handler.Message
       Handler.Profile
       Import
       Import.NoFoundation
