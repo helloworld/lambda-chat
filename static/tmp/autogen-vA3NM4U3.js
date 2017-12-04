@@ -14,6 +14,7 @@ document.onreadystatechange = () => {
             contentType: "application/json",
             data: JSON.stringify({
               message: $val,
+              channelId: commentid,
             }),
             success: function (data) {
               console.log(data);

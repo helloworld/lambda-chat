@@ -33,6 +33,7 @@ import Network.Wai.Middleware.RequestLogger (Destination (Logger),
                                              IPAddrSource (..),
                                              OutputFormat (..), destination,
                                              mkRequestLogger, outputFormat)
+import Network.Wai.Middleware.AddHeaders (addHeaders)
 import System.Log.FastLogger                (defaultBufSize, newStdoutLoggerSet,
                                              toLogStr)
 
