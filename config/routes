@@ -9,8 +9,8 @@
 
 / HomeR GET POST
 
-/comments CommentR POST
+/comments CommentR GET POST
 
 /profile ProfileR GET
 
-/channel/#String ChannelViewR GET
+/message/#CommentId MessageR GET POST
