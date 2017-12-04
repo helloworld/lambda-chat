@@ -9,7 +9,7 @@ document.onreadystatechange = () => {
            $(this).val("")
 
            $.ajax({
-            url: '/message/' + commentid,
+            url: '/message,
             type: 'POST',
             contentType: "application/json",
             data: JSON.stringify({
