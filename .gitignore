@@ -3,6 +3,7 @@
 dist/
 /database/
 yesod-devel/
+my-project.sqlite3*
 config/client_session_key.aes
 .ghci
 .dir-locals.el
