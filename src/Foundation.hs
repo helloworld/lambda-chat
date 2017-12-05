@@ -6,16 +6,27 @@
 {-# LANGUAGE ViewPatterns #-}
 {-# LANGUAGE ExplicitForAll #-}
 {-# LANGUAGE RankNTypes #-}
+{-# LANGUAGE DeriveDataTypeable         #-}
+{-# LANGUAGE FlexibleContexts           #-}
+{-# LANGUAGE GADTs                      #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE QuasiQuotes                #-}
 
 module Foundation where
 
 import Import.NoFoundation
 import Database.Persist.Sql (ConnectionPool, runSqlPool)
 import Text.Hamlet          (hamletFile)
+import Text.Shakespeare.Text    (stext)
 import Text.Jasmine         (minifym)
 
 -- Used only when in "auth-dummy-login" setting is enabled.
 import Yesod.Auth.Dummy
+import Yesod.Auth
+import Yesod.Auth.Email
+import Yesod.Auth.BrowserId
+import Yesod.Auth.GoogleEmail2
+import Text.Blaze.Html.Renderer.Utf8 (renderHtml)
 
 import Yesod.Auth.OpenId    (authOpenId, IdentifierType (Claimed))
 import Yesod.Default.Util   (addStaticContentExternal)
@@ -23,6 +34,13 @@ import Yesod.Core.Types     (Logger)
 import qualified Yesod.Core.Unsafe as Unsafe
 import qualified Data.CaseInsensitive as CI
 import qualified Data.Text.Encoding as TE
+
+clientId :: Text
+clientId    = "375132528781-h8bcf0vv940ar5oikde7rnq8flbufce4.apps.googleusercontent.com"
+
+clientSecret :: Text
+clientSecret = "uWzkRQWAXVyxSWoTzokWIDw_"
+
 
 -- | The foundation datatype for your application. This can be a good place to
 -- keep settings and values requiring initialization before your application
@@ -90,13 +108,14 @@ instance Yesod App where
     --   b) Validates that incoming write requests include that token in either a header or POST parameter.
     -- To add it, chain it together with the defaultMiddleware: yesodMiddleware = defaultYesodMiddleware . defaultCsrfMiddleware
     -- For details, see the CSRF documentation in the Yesod.Core.Handler module of the yesod-core package.
+    --yesodMiddleware = defaultYesodMiddleware
     yesodMiddleware = defaultYesodMiddleware
 
     defaultLayout widget = do
         master <- getYesod
         mmsg <- getMessage
 
-        muser <- maybeAuthPair
+        muser <- maybeAuthId
         mcurrentRoute <- getCurrentRoute
 
         -- Get the breadcrumbs, as defined in the YesodBreadcrumbs instance.
@@ -213,20 +232,23 @@ instance YesodAuth App where
     -- Override the above two destinations when a Referer: header is present
     redirectToReferer _ = True
 
-    authenticate creds = runDB $ do
-        x <- getBy $ UniqueUser $ credsIdent creds
-        case x of
-            Just (Entity uid _) -> return $ Authenticated uid
-            Nothing -> Authenticated <$> insert User
-                { userIdent = credsIdent creds
-                , userPassword = Nothing
-                }
+    --maybeAuthId = lookupSession "_ID"
+
+    getAuthId creds = runDB $ do
+        x <- insertBy $ User (credsIdent creds) Nothing
+        return $ Just $
+            case x of
+                Left (Entity userid _) -> userid -- newly added user
+                Right userid -> userid -- existing user
 
     -- You can add other plugins like Google Email, email or OAuth here
-    authPlugins app =  [authOpenId Claimed []] ++  extraAuthPlugins
+    --authPlugins app =  [authOpenId Claimed []] ++  extraAuthPlugins
         -- Enable authDummy login if enabled.
-        where extraAuthPlugins = [authDummy | appAuthDummyLogin $ appSettings app]
-
+        --where extraAuthPlugins = [authDummy | appAuthDummyLogin $ appSettings app]
+    authPlugins _ =
+      [ authBrowserId def
+      , authGoogleEmail clientId clientSecret
+      ]
     authHttpManager = getHttpManager
 
 -- | Access function to determine if a user is logged in.

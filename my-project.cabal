@@ -59,6 +59,8 @@ library
     , time
     , case-insensitive
     , wai
+    , mime-mail
+    , blaze-html
   if (flag(dev)) || (flag(library-only))
     ghc-options: -Wall -fwarn-tabs -O0
     cpp-options: -DDEVELOPMENT
@@ -127,6 +129,8 @@ executable my-project
     , time
     , case-insensitive
     , wai
+    , mime-mail
+    , blaze-html
     , my-project
   if flag(library-only)
     buildable: False
@@ -179,6 +183,8 @@ test-suite test
     , time
     , case-insensitive
     , wai
+    , mime-mail
+    , blaze-html
     , my-project
     , hspec >=2.0.0
     , yesod-test

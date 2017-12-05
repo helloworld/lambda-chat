@@ -45,6 +45,8 @@ dependencies:
 - time
 - case-insensitive
 - wai
+- mime-mail
+- blaze-html
 
 default-extensions: ViewPatterns
 
