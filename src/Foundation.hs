@@ -168,7 +168,7 @@ instance Yesod App where
     isAuthorized (AuthR _) _ = return Authorized
     isAuthorized ChannelR _ = return Authorized
     isAuthorized (ChannelViewR _) _ = return Authorized
-    isAuthorized HomeR _ = return Authorized
+    isAuthorized HomeR _ = isAuthenticated
     isAuthorized FaviconR _ = return Authorized
     isAuthorized RobotsR _ = return Authorized
     isAuthorized (StaticR _) _ = return Authorized
@@ -235,7 +235,7 @@ instance YesodAuth App where
     --maybeAuthId = lookupSession "_ID"
 
     getAuthId creds = runDB $ do
-        x <- insertBy $ User (credsIdent creds) Nothing
+        x <- insertBy $ User (credsIdent creds) Nothing Nothing
         return $ Just $
             case x of
                 Left (Entity userid _) -> userid -- newly added user

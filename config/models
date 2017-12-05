@@ -3,6 +3,7 @@
 
 User
     ident Text
+    display Text Maybe
     password Text Maybe
     UniqueUser ident
     deriving Typeable
@@ -22,5 +23,9 @@ Message json
     userId UserId Maybe
     username Text
     comm Int
+    deriving Eq
+    deriving Show
+TextRequest json
+    text Text
     deriving Eq
     deriving Show
