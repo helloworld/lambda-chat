@@ -32,6 +32,10 @@ function load_messages() {
       }
     }
 
+    $('.chat_container').stop().animate({
+                    scrollTop: $(".chat_container")[0].scrollHeight
+                }, 800);
+
     loaded_count = data.length
     setTimeout(function() {
       load_messages()

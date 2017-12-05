@@ -8,6 +8,8 @@ ul.chat_container {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    height: 70vh;
+    overflow-y: scroll;
 }
 
 ul.chat_container li {

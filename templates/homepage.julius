@@ -22,7 +22,10 @@ $(function() {
         desc: desc,
       }),
       success: function (data) {
-        location.reload();
+        $("button").addClass("loading");
+        setTimeout(function() {
+          location.reload();
+        },2000);
       },
       error: function (data) {
         console.log("Error creating comment: " + data);
