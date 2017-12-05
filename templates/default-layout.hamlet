@@ -30,11 +30,11 @@
 
 
 
-$if (Just HomeR == mcurrentRoute)
-    ^{widget}
-$else
-    <div .ui.container>
-        ^{widget}
+  $if (Just HomeR == mcurrentRoute)
+      ^{widget}
+  $else
+      <div .ui.container>
+          ^{widget}
 
 <!-- Footer -->
 <footer .footer>
