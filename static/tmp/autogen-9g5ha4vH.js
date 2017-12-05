@@ -9,8 +9,6 @@ var username = $('#username').text()
 commentid = parseInt(commentid)
 userid = parseInt(userid.replace('Just', ''))
 
-var colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
-
 var loaded_count = 0;
 var last_id;
 

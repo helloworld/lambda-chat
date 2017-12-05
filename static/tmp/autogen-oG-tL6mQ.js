@@ -9,8 +9,6 @@ var username = $('#username').text()
 commentid = parseInt(commentid)
 userid = parseInt(userid.replace('Just', ''))
 
-var colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
-
 var loaded_count = 0;
 var last_id;
 
@@ -45,9 +43,9 @@ function set_event_handlers() {
   $('input').keypress(function(e) {
     if (e.which != 13) return
     var message = $(this).val()
-    // var $el = $('li.message')
-    //   .last()
-    //   .append(`<div class="message">${message}</div>`)
+    var $el = $('li.message')
+      .last()
+      .append(`<div class="message">${message}</div>`)
     $(this).val('')
 
     $.ajax({

@@ -9,14 +9,12 @@ var username = $('#username').text()
 commentid = parseInt(commentid)
 userid = parseInt(userid.replace('Just', ''))
 
-var colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
-
 var loaded_count = 0;
-var last_id;
 
 function load_messages() {
   $.get('/message/' + commentid, function(data) {
     console.log("Pulling")
+    var last_id
     for (var i = loaded_count; i < data.length; i++) {
       if (last_id == data[i].userId) {
         $('li.message')
@@ -34,10 +32,10 @@ function load_messages() {
     }
 
     loaded_count = data.length;
-    setTimeout(function() {
+    setTimeout(100, function() {
       console.log("laskdfj")
       load_messages();
-    }, 400)
+    })
   })
 }
 
@@ -45,9 +43,9 @@ function set_event_handlers() {
   $('input').keypress(function(e) {
     if (e.which != 13) return
     var message = $(this).val()
-    // var $el = $('li.message')
-    //   .last()
-    //   .append(`<div class="message">${message}</div>`)
+    var $el = $('li.message')
+      .last()
+      .append(`<div class="message">${message}</div>`)
     $(this).val('')
 
     $.ajax({
