@@ -27,7 +27,7 @@ getHomeR = do
     (formWidget, formEnctype) <- generateFormPost sampleForm
     let submission = Nothing :: Maybe FileForm
         handlerName = "getHomeR" :: Text
-    allComments <- runDB $ getAllComments
+    allChannels <- runDB $ getAllChannels
 
     defaultLayout $ do
         let (commentFormId, commentTextareaId, channelDescId, commentListId) = commentIds
@@ -42,7 +42,7 @@ postHomeR = do
         submission = case result of
             FormSuccess res -> Just res
             _ -> Nothing
-    allComments <- runDB $ getAllComments
+    allChannels <- runDB $ getAllChannels
 
     defaultLayout $ do
         let (commentFormId, commentTextareaId, channelDescId, commentListId) = commentIds
@@ -67,7 +67,7 @@ sampleForm = renderBootstrap3 BootstrapBasicForm $ FileForm
             }
 
 commentIds :: (Text, Text, Text, Text)
-commentIds = ("js-commentForm", "js-createCommentTextarea", "js-createCommentDescArea", "js-commentList")
+commentIds = ("js-commentForm", "js-createChannelTextarea", "js-createChannelDescArea", "js-commentList")
 
-getAllComments :: DB [Entity Comment]
-getAllComments = selectList [] [Asc CommentId]
+getAllChannels :: DB [Entity Channel]
+getAllChannels = selectList [] [Asc ChannelId]

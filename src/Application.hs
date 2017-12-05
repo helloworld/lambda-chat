@@ -41,11 +41,11 @@ import System.Log.FastLogger                (defaultBufSize, newStdoutLoggerSet,
 -- Don't forget to add new modules to your cabal file!
 import Handler.Common
 import Handler.Home
-import Handler.Comment
+import Handler.Channel
 import Handler.Profile
 import Handler.Message
 import Handler.MessageNew
-import Handler.CommentView
+import Handler.ChannelView
 
 
 -- This line actually creates our YesodDispatch instance. It is the second half

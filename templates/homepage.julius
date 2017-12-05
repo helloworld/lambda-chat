@@ -14,7 +14,7 @@ $(function() {
 
     // Make an AJAX request to the server to create a new comment
     $.ajax({
-      url: '@{CommentR}',
+      url: '@{ChannelR}',
       type: 'POST',
       contentType: "application/json",
       data: JSON.stringify({

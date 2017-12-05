@@ -3,12 +3,12 @@
 {-# LANGUAGE TemplateHaskell #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE TypeFamilies #-}
-module Handler.CommentView where
+module Handler.ChannelView where
 
 import Import
 
-getCommentViewR :: CommentId -> Handler Html
-getCommentViewR commentid = do
+getChannelViewR :: ChannelId -> Handler Html
+getChannelViewR commentid = do
     (_, user) <- requireAuthPair
     maid <- maybeAuthId
     defaultLayout $ do
