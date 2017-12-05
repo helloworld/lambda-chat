@@ -18,8 +18,9 @@ function load_messages() {
           .last()
           .append(`<div class="message">${data[i].message}</div>`)
       } else {
-        var html = `<li class="message ${data[i].userId == userid ? "me" : ""}">
-                      <div class="user">${data[i].username}</div>
+        console.log(data[i].userId == userid ? "me" : "")
+        var html = `<li class="message me>
+                      <div class="user">${data[i].userId}</div>
                       <div class="message">${data[i].message}</div>
                     </li> `
 

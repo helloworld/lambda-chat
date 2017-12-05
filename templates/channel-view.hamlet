@@ -1,15 +1,17 @@
 <div id="commentid"> #{toPathPiece commentid}
-
+<div id="userid"> #{toPathPiece maid}
+<div id="username"> #{userIdent user} 
+    
 <div .ui.container>
 
     <h3 .ui.dividing.header>
       Channel Name: 
 
     <p>
-      Username: <div .ui.label>#{userIdent user}
+      Username: <div .ui.label>
 
     <ul class="chat_container">
-        <li class="message">
+        <!-- <li class="message">
             <div class="user">Sashank
             <div class="message">Hey!
             <div class="message">Did you do the homework yet?
@@ -29,7 +31,7 @@
         <li class="message me">
             <div class="user">Rex
             <div class="message">We are trying to emulate parallelization, so it's best to use pmap (which has already been defined in the homework for us to use). 
-            <div class="message">@Kevin prob 5 - 10 min
+            <div class="message">@Kevin prob 5 - 10 min -->
         
     
 

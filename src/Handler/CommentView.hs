@@ -10,6 +10,7 @@ import Import
 getCommentViewR :: CommentId -> Handler Html
 getCommentViewR commentid = do
     (_, user) <- requireAuthPair
+    maid <- maybeAuthId
     defaultLayout $ do
         setTitle . toHtml $ userIdent user <> "'s User page"
         $(widgetFile "channel-view")
