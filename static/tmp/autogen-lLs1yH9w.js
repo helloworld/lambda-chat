@@ -42,7 +42,7 @@ function load_messages() {
 var commands = {
   youtube: function(text, callback) {
     function getId(url) {
-      var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/
+      var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#&\?]*).*/
       var match = url.match(regExp)
 
       if (match && match[2].length == 11) {
@@ -116,9 +116,9 @@ function set_event_handlers() {
       commands[command](text, function(new_message) {
         send_message(new_message, commentid, username)
       })
-    } else {
-      send_message(message, commentid, username)
     }
+
+    send_message(message, commentid, username)
   })
 }
 

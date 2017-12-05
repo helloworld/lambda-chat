@@ -16,13 +16,13 @@
 <!-- Page Contents -->
 
 <div .ui.container>
-    $if not $ Just HomeR == mcurrentRoute
+    <!-- $if not $ Just HomeR == mcurrentRoute
       <div class="ui breadcrumb">
         $forall bc <- parents
           <a href="@{fst bc}" .section">#{snd bc}
           <i class="right chevron icon divider">
 
-        <li .active.section >#{title}
+        <li .active.section >#{title} -->
 
     $maybe msg <- mmsg
       <div .ui.negative.message> 
