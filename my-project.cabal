@@ -69,8 +69,8 @@ library
   exposed-modules:
       Application
       Foundation
-      Handler.Comment
-      Handler.CommentView
+      Handler.Channel
+      Handler.ChannelView
       Handler.Common
       Handler.Home
       Handler.Message

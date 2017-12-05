@@ -166,8 +166,8 @@ instance Yesod App where
 
     -- Routes not requiring authentication.
     isAuthorized (AuthR _) _ = return Authorized
-    isAuthorized CommentR _ = return Authorized
-    isAuthorized (CommentViewR _) _ = return Authorized
+    isAuthorized ChannelR _ = return Authorized
+    isAuthorized (ChannelViewR _) _ = return Authorized
     isAuthorized HomeR _ = return Authorized
     isAuthorized FaviconR _ = return Authorized
     isAuthorized RobotsR _ = return Authorized
@@ -246,9 +246,7 @@ instance YesodAuth App where
         -- Enable authDummy login if enabled.
         --where extraAuthPlugins = [authDummy | appAuthDummyLogin $ appSettings app]
     authPlugins _ =
-      [ authBrowserId def
-      , authGoogleEmail clientId clientSecret
-      ]
+      [authGoogleEmail clientId clientSecret]
     authHttpManager = getHttpManager
 
 -- | Access function to determine if a user is logged in.

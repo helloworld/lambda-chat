@@ -13,7 +13,7 @@
                 <!-- <input ##{channelDescId} placeholder="Channel Description" required> -->
 
             <button .ui.button type=submit>
-               Create comment
+               Create channel
 
 
 
@@ -23,9 +23,11 @@
                 <th>Name
                 <th>Link
         <tbody ##{commentListId}>
-        $forall Entity commentid comment <- allComments
+        $forall Entity commentid comment <- allChannels
             <tr>
                 <td>
                     <h4 class="ui header">
-                        <div class="content"> #{commentMessage comment} <div class="sub header"> #{commentDesc comment}
-                <td> <a href=@{CommentViewR commentid} class="ui green fluid button">Join
+
+                        <div class="content"> #{channelMessage comment} <div class="sub header"> #{channelDesc comment}
+                <td> 22
+                <td> <a href=@{ChannelViewR commentid} class="ui green fluid button">Join

@@ -7,7 +7,7 @@ getMessageR slug = do
     allMessages <- runDB $ selectList [MessageComm ==. slug] []
     returnJson allMessages
 
--- postMessageR :: CommentId -> Handler Value
+-- postMessageR :: ChannelId -> Handler Value
 -- postMessageR slug = do
 --     -- requireJsonBody will parse the request body into the appropriate type, or return a 400 status code if the request JSON is invalid.
 --     -- (The ToJSON and FromJSON instances are derived in the config/models file).
@@ -30,5 +30,5 @@ postMessageR slug = do
     maybeCurrentUserId <- maybeAuthId
     let comment' = comment { messageUserId = maybeCurrentUserId }
 
-    insertedComment <- runDB $ insertEntity comment'
-    returnJson insertedComment
+    insertedChannel <- runDB $ insertEntity comment'
+    returnJson insertedChannel

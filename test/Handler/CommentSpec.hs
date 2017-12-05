@@ -1,6 +1,6 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE OverloadedStrings #-}
-module Handler.CommentSpec (spec) where
+module Handler.ChannelSpec (spec) where
 
 import TestImport
 import Data.Aeson
@@ -18,14 +18,14 @@ spec = withApp $ do
 
             request $ do
                 setMethod "POST"
-                setUrl CommentR
+                setUrl ChannelR
                 setRequestBody encoded
                 addRequestHeader ("Content-Type", "application/json")
 
             statusIs 200
 
-            [Entity _id comment] <- runDB $ selectList [CommentMessage ==. message] []
-            assertEq "Should have " comment (Comment message Nothing)
+            [Entity _id comment] <- runDB $ selectList [ChannelMessage ==. message] []
+            assertEq "Should have " comment (Channel message Nothing)
 
     describe "invalid requests" $ do
         it "400s when the JSON body is invalid" $ do
@@ -35,7 +35,7 @@ spec = withApp $ do
 
             request $ do
                 setMethod "POST"
-                setUrl CommentR
+                setUrl ChannelR
                 setRequestBody $ encode body
                 addRequestHeader ("Content-Type", "application/json")
 

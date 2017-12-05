@@ -12,5 +12,5 @@ postMessageNewR = do
     maybeCurrentUserId <- maybeAuthId
     let comment' = comment { messageUserId = maybeCurrentUserId }
 
-    insertedComment <- runDB $ insertEntity comment'
-    returnJson insertedComment
+    insertedChannel <- runDB $ insertEntity comment'
+    returnJson insertedChannel
