@@ -68,12 +68,12 @@ library
       Application
       Foundation
       Handler.Comment
+      Handler.CommentView
       Handler.Common
       Handler.Home
       Handler.Message
-      Handler.Profile
-      Handler.CommentView
       Handler.MessageNew
+      Handler.Profile
       Import
       Import.NoFoundation
       Model

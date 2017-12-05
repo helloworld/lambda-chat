@@ -14,5 +14,5 @@
 
 /profile ProfileR GET
 
-/message/#CommentId MessageR GET POST
+/message/#Int MessageR GET POST
 /message MessageNewR POST
