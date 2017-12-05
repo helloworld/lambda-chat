@@ -2,9 +2,9 @@ module Handler.Message where
 
 import Import
 
-getMessageR :: CommentId -> Handler Value
+getMessageR :: Int -> Handler Value
 getMessageR slug = do
-    allMessages <- runDB $ getAllMessages
+    allMessages <- runDB $ selectList [MessageComm ==. slug] []
     returnJson allMessages
 
 -- postMessageR :: CommentId -> Handler Value
@@ -20,7 +20,7 @@ getMessageR slug = do
 --     insertedMessage <- runDB $ insertEntity message'
 --     returnJson insertedMessage
 
-postMessageR :: CommentId -> Handler Value
+postMessageR :: Int -> Handler Value
 postMessageR slug = do
     -- requireJsonBody will parse the request body into the appropriate type, or return a 400 status code if the request JSON is invalid.
     -- (The ToJSON and FromJSON instances are derived in the config/models file).
@@ -32,7 +32,3 @@ postMessageR slug = do
 
     insertedComment <- runDB $ insertEntity comment'
     returnJson insertedComment
-
-
-getAllMessages :: DB [Entity Message]
-getAllMessages = selectList [] [Asc MessageId]
