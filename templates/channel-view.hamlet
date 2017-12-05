@@ -8,8 +8,6 @@
     <h3 .ui.dividing.header>
       Channel Name: 
 
-    <p>
-      Username: <div .ui.label>
 
     <ul class="chat_container">
         <!-- <li class="message">

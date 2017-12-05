@@ -29,5 +29,4 @@
                     <h4 class="ui header">
 
                         <div class="content"> #{channelMessage comment} <div class="sub header"> #{channelDesc comment}
-                <td> 22
                 <td> <a href=@{ChannelViewR commentid} class="ui green fluid button">Join

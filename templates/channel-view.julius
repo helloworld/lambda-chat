@@ -55,14 +55,14 @@ var commands = {
     var videoId = getId(text)
 
     var iframeMarkup =
-      '<iframe width="560" height="315" src="//www.youtube.com/embed/' +
+      '<iframe width="450" height="300" src="//www.youtube.com/embed/' +
       videoId +
       '" frameborder="0" allowfullscreen></iframe>'
 
     callback(iframeMarkup)
   },
   image: function(text, callback) {
-    callback(`<img src="${text}" width="560", height="315">`)
+    callback(`<img src="${text}" width="450"> height="300"`)
   },
   gif: function(text, callback) {
     $.get(
@@ -71,7 +71,7 @@ var commands = {
         console.log(data)
         callback(
           `<img src="${data.data[0].images.fixed_width
-            .url}" width="560", height="315">`,
+            .url}" width="450" height="300">`,
         )
       },
     )
