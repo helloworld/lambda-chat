@@ -4,5 +4,18 @@
       Profile
 
     <p>
-      Username: <div .ui.label>#{userIdent user}
+      Email: <div .ui.label>#{email}
+    <p>
 
+    <p>
+      Display Name: <div .ui.label>#{display}
+
+
+    <div .ui.segment>
+        <form .ui.form ##{displayFormId}>
+            <div .field>
+                <label> Set Display Name
+                <input ##{displayTextareaId} placeholder="Type display name here..." required></input>
+
+            <button .ui.button type=submit>
+              Submit

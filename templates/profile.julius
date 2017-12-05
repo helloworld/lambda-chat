@@ -1,0 +1,31 @@
+// document.getElementById(#{toJSON aDomId}).innerHTML = "This text was added by the Javascript part of the homepage widget.";
+
+$(function() {
+  $("##{rawJS displayFormId}").submit(function(event) {
+    event.preventDefault();
+
+    var display = $("##{rawJS displayTextareaId}").val();
+    // (Browsers that enforce the "required" attribute on the textarea won't see this alert)
+    if (!display) {
+      alert("Please enter a display name first.");
+      return;
+    }
+
+    // Make an AJAX request to the server to create a new comment
+    $.ajax({
+      url: '@{ProfileR}',
+      type: 'POST',
+      contentType: "application/json",
+      data: JSON.stringify({
+        text: display,
+      }),
+      success: function (data) {
+        console.log(data);
+      },
+      error: function (data) {
+        console.log("Error creating comment: " + data);
+      },
+    });
+
+  });
+});

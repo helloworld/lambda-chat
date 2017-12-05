@@ -12,7 +12,7 @@
 /comments ChannelR POST
 /comments/#ChannelId ChannelViewR GET
 
-/profile ProfileR GET
+/profile ProfileR GET POST
 
 /message/#Int MessageR GET POST
 /message MessageNewR POST
